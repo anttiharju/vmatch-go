@@ -1,0 +1,7 @@
+output:
+  - success
+  - failure
+
+pre-commit:
+  jobs:
+    - run: shellcheck -x install.sh
