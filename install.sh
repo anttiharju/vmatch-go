@@ -2,6 +2,7 @@
 set -eu
 
 mkdir -p "$1"
+
 path="$1"
 goversion="$2"
 goos="$3"
