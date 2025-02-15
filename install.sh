@@ -1,9 +1,11 @@
 #!/bin/sh
 set -eu
 
-PATH="$(realpath "$1")"
-GOOS="$2"
-GOARCH="$3"
-GOVERSION="$4"
+mkdir -p "$1"
+path="$(realpath "$1")"
+goos="$2"
+goarch="$3"
+goversion="$4"
 
-echo "https://go.dev/dl/${GOVERSION}.${GOOS}-${GOARCH}.tar.gz"
+url="https://go.dev/dl/${goversion}.${goos}-${goarch}.tar.gz"
+curl -sL "$url" | tar -C "$path" -xz
