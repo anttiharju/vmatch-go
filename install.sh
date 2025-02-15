@@ -1,4 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/sh
+set -eu
 
 PATH="$(realpath "$1")"
 GOOS="$2"
