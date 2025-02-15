@@ -4,4 +4,6 @@ output:
 
 pre-commit:
   jobs:
-    - run: shellcheck -x install.sh
+    - name: shellcheck
+      run: git ls-files -z '*.sh' | xargs -0 shellcheck -x
+      glob: "*.sh"
