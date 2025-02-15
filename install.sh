@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
 
-mkdir -p "$1"
+goversion="$1"
+goos="$2"
+goarch="$3"
+path="$4"
 
-path="$1"
-goversion="$2"
-goos="$3"
-goarch="$4"
+mkdir -p "$path"
 
 url="https://go.dev/dl/go${goversion}.${goos}-${goarch}.tar.gz"
 curl -sL "$url" | tar -C "$path" --strip-components=1 -xz
