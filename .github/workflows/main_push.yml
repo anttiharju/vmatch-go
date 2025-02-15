@@ -1,0 +1,17 @@
+name: Main Push
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.sh'
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run shellcheck
+        run: |
+          git ls-files -z '*.sh' | xargs -0 shellcheck -x
